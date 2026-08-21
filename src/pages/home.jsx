@@ -92,7 +92,7 @@ const Home = () => {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#catalog" className="primary-button">Explore the collection</a>
-              <Link to="/product/smartphones" className="secondary-button">Shop smartphones</Link>
+              <Link to="/category/smartphones" className="secondary-button">Shop smartphones</Link>
             </div>
             <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-slate-500">
               <span>Free delivery over $50</span><span>30-day returns</span><span>Here when you need us</span>
@@ -127,7 +127,7 @@ const Home = () => {
           </div>
           <select
             value={cat || ""}
-            onChange={(event) => nav(event.target.value ? `/product/${event.target.value}` : "/")}
+            onChange={(event) => nav(event.target.value ? `/category/${event.target.value}` : "/")}
             className="category-select"
             aria-label="Browse electronic categories"
           >
@@ -222,7 +222,7 @@ const Home = () => {
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {visibleCategories.slice(0, 6).map((category, index) => (
-            <Link key={category.slug} to={`/product/${category.slug}`} className={`category-tile category-tile-${index % 3}`}>
+            <Link key={category.slug} to={`/category/${category.slug}`} className={`category-tile category-tile-${index % 3}`}>
               <span className="category-number">0{index + 1}</span>
               <span><strong>{category.name}</strong><small>Shop the collection →</small></span>
             </Link>

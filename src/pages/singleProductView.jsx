@@ -1,10 +1,21 @@
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useGetProductQuery } from "../services/productApi";
 import { useDeleteProductMutation } from "../services/deleteApi";
 
 const SingleProductView = () => {
   const { id } = useParams();
   const { data: product } = useGetProductQuery(id);
+  const [deleteProduct, { isLoading: isDeleting }] = useDeleteProductMutation();
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    try {
+      await deleteProduct(id).unwrap();
+      navigate("/");
+    } catch {
+      alert("This product could not be deleted right now.");
+    }
+  };
 
   if (!product) return null;
 
@@ -52,9 +63,11 @@ const SingleProductView = () => {
             </button>
             <button
               className="rounded-full bg-rose-100 px-6 py-3 font-bold text-rose-700 transition hover:bg-rose-200"
-              onClick={useDeleteProductMutation}
+              type="button"
+              onClick={handleDelete}
+              disabled={isDeleting}
             >
-              Delete
+              {isDeleting ? "Deleting..." : "Delete"}
             </button>
           </div>
         </div>

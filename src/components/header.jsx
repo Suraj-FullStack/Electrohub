@@ -23,7 +23,7 @@ const Header = () => {
 
         <nav className="hidden items-center gap-7 text-sm font-bold text-slate-500 md:flex">
           <NavLink className="transition hover:text-cyan-600" to="/" end>Home</NavLink>
-          <NavLink className="transition hover:text-cyan-600" to="/product/smartphones">Shop tech</NavLink>
+          <NavLink className="transition hover:text-cyan-600" to="/category/smartphones">Shop tech</NavLink>
           <NavLink className="transition hover:text-cyan-600" to="/add">Sell with us</NavLink>
           <NavLink className="transition hover:text-cyan-600" to="/login">Account</NavLink>
         </nav>

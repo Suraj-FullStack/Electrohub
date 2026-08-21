@@ -11,7 +11,7 @@ function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/product/:cat" element={<Home />} />
+        <Route path="/category/:cat" element={<Home />} />
         <Route path="/product/:id" element={<SingleProductView />} />
         <Route path="/add" element={<Add />} />
         <Route path="/login" element={<Login />} />
