@@ -5,7 +5,8 @@ import Home from "./pages/home";
 import SingleProductView from "./pages/singleProductView";
 import Add from "./pages/add";
 import Login from "./pages/login";
-
+import RouteProtection from './components/Routeprotection'
+import Profile from './pages/profile'
 function App() {
   return (
     <Routes>
@@ -15,6 +16,14 @@ function App() {
         <Route path="/product/:id" element={<SingleProductView />} />
         <Route path="/add" element={<Add />} />
         <Route path="/login" element={<Login />} />
+        <Route
+    path="/profile"
+    element={
+        <RouteProtection>
+            <Profile />
+        </RouteProtection>
+    }
+/>
       </Route>
     </Routes>
   );

@@ -1,68 +1,68 @@
-import { useForm } from "react-hook-form";
-import { useLoginMutation } from "../services/authApi";
+import { useState } from 'react'
+import { useNavigate } from 'react-router'
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
-  const [login] = useLoginMutation();
 
-  const onSubmit = async (formData) => {
-    try {
-      const result = await login(formData).unwrap();
-      alert(`Welcome back, ${result.firstName}!`);
-    } catch (err) {
-      alert("Login failed. Check your credentials.");
-      console.log(err);
+    const navigate = useNavigate()
+
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+
+        // Example login user
+        // Later, replace this with your actual API response
+        const user = {
+            username: username,
+            accesstoken: "fasdfsadfasdf",
+            refreshtoken: "asdfasdfsfd"
+        }
+
+        // Save logged-in user in localStorage
+        localStorage.setItem("user", JSON.stringify(user))
+
+        // Redirect to protected profile page
+        navigate("/profile")
     }
-  };
 
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-[#101828] px-4 py-16">
-      <div className="w-full max-w-md space-y-4 rounded-2xl bg-white p-7 shadow-xl shadow-black/20">
-        <p className="eyebrow">Welcome to Electrohub</p>
-        <h1 className="text-2xl font-black text-slate-950">Sign in to your setup</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div>
-            <label
-              htmlFor="username"
-              className="block mb-1 text-sm font-medium text-gray-700"
-            >
-              Username
-            </label>
-            <input
-              {...register("username")}
-              type="text"
-              id="username"
-              required
-              className="w-full border border-gray-300 rounded-lg p-2.5 text-sm"
-              placeholder="Enter your username"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block mb-1 text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
-            <input
-              {...register("password")}
-              type="password"
-              id="password"
-              required
-              className="w-full border border-gray-300 rounded-lg p-2.5 text-sm"
-              placeholder="••••••••"
-            />
-          </div>
-          <button
-            type="submit"
-            className="primary-button w-full"
-          >
-            Sign In
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
+    return (
+        <div>
 
-export default Login;
+            <h1>Login</h1>
+
+            <form onSubmit={handleLogin}>
+
+                <div>
+                    <label>Username</label>
+
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Enter username"
+                    />
+                </div>
+
+                <div>
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter password"
+                    />
+                </div>
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+    )
+}
+
+export default Login
