@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+/* ElectroHub design tokens.
+   Ink = near-black with a cool undertone (not pure black, not warm charcoal).
+   Paper = a cool off-white, not cream — this is an electronics counter, not a stationery shop.
+   Signal = the amber of a power LED. Circuit = a quiet desaturated PCB green, used sparingly. */
+@theme {
+  --color-ink: #14181f;
+  --color-ink-soft: #2a3140;
+  --color-paper: #f3f4f1;
+  --color-panel: #ffffff;
+  --color-line: #dee1dc;
+  --color-signal: #f0a93b;
+  --color-signal-dark: #c98420;
+  --color-circuit: #3e6259;
+  --color-muted: #6b7280;
+
+  --font-display: 'Space Grotesk', ui-sans-serif, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Tabular numerals everywhere digits show up in a row — prices, page counters. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
