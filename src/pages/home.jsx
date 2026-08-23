@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
+import { Link, useParams, useSearchParams } from 'react-router'
 import {
   useGetProductsByCategoryQuery,
   useSearchProductsQuery,
@@ -18,7 +18,6 @@ const PAGE_SIZE = 2
 const Home = () => {
   const { slug } = useParams()
   const [searchParams] = useSearchParams()
-  const nav = useNavigate()
   const q = searchParams.get('q') || ''
 
   const [skip, setSkip] = useState(0)
