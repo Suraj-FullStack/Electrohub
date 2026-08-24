@@ -4,11 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ElectroHub</title>
-    <link rel="icon" type="image/svg+xml" href="/Electrohub/favicon.svg" />
-    <script type="module" crossorigin src="/Electrohub/assets/index-B3rJxuCk.js"></script>
-    <link rel="stylesheet" crossorigin href="/Electrohub/assets/index-B-E138eY.css">
+    <script type="module" crossorigin src="/Electrohub/dist/assets/index-Ce4dVQJj.js"></script>
+    <link rel="stylesheet" crossorigin href="/Electrohub/dist/assets/index-DtjI2gcG.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const viteBase = '/Electrohub/dist/'
+      const favicon = document.createElement('link')
+      favicon.rel = 'icon'
+      favicon.type = 'image/svg+xml'
+      favicon.href = viteBase === '/Electrohub/dist/'
+        ? '/Electrohub/dist/favicon.svg'
+        : `${viteBase}favicon.svg`
+      document.head.appendChild(favicon)
+
+      if (viteBase === '/Electrohub/dist/' && globalThis.location.hostname.endsWith('github.io')) {
+        globalThis.location.replace('/Electrohub/dist/')
+      }
+    </script>
   </body>
 </html>

@@ -4,10 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ElectroHub</title>
-    <link rel="icon" type="image/svg+xml" href="/Electrohub/favicon.svg" />
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      const viteBase = '%BASE_URL%'
+      const favicon = document.createElement('link')
+      favicon.rel = 'icon'
+      favicon.type = 'image/svg+xml'
+      favicon.href = viteBase === '%BASE_URL%'
+        ? '/Electrohub/dist/favicon.svg'
+        : `${viteBase}favicon.svg`
+      document.head.appendChild(favicon)
+
+      if (viteBase === '%BASE_URL%' && globalThis.location.hostname.endsWith('github.io')) {
+        globalThis.location.replace('/Electrohub/dist/')
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
