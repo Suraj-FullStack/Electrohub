@@ -38,8 +38,8 @@ const Login = () => {
       <p className="font-mono text-xs uppercase tracking-widest text-muted">Account</p>
       <h1 className="mt-1 font-display text-2xl font-semibold text-ink">Sign in</h1>
       <p className="mt-2 font-mono text-xs text-muted">
-        Demo catalog, demo login — try <code className="text-ink">emilys</code> /{' '}
-        <code className="text-ink">emilyspass</code>.
+        <code className="text-ink">username</code> /{' '}
+        <code className="text-ink">password</code>.
       </p>
 
       {loginError && (
@@ -58,7 +58,7 @@ const Login = () => {
             type="text"
             id="username"
             className="w-full rounded border border-line bg-panel p-2.5 text-sm text-ink outline-none transition focus:border-ink"
-            placeholder="emilys"
+            placeholder="username"
           />
           {errors.username && (
             <p className="mt-1 font-mono text-xs text-signal-dark">{errors.username.message}</p>
@@ -74,7 +74,7 @@ const Login = () => {
             type="password"
             id="password"
             className="w-full rounded border border-line bg-panel p-2.5 text-sm text-ink outline-none transition focus:border-ink"
-            placeholder="••••••••"
+            placeholder="password"
           />
           {errors.password && (
             <p className="mt-1 font-mono text-xs text-signal-dark">{errors.password.message}</p>

@@ -78,7 +78,7 @@ const Home = () => {
             Phones, laptops, tablets, and the accessories you actually need.
           </h1>
           <p className="mt-3 max-w-xl text-sm text-white/60">
-            No dresses. No fragrance. Just the aisle you came for.
+            ElectroHub is a curated selection of electronics, kept deliberately focused on what matters.
           </p>
         </div>
       </section>
